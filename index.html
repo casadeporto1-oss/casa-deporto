@@ -65,14 +65,28 @@
   }
   .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:0.06em;color:var(--white);text-transform:uppercase;}
   .brand-lockup{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
-  .nav-logo{height:44px;width:auto;display:block;}
-  .hero-logo{width:92px;height:auto;margin:0 auto 1.3rem;display:block;}
-  .foot-logo{height:120px;width:auto;display:block;}
+  .nav-logo{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.6));}
+  .hero-logo-wrap{
+    width:132px;height:132px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(33,31,28,0.55) 0%, rgba(33,31,28,0.15) 65%, transparent 75%);
+  }
+  .hero-logo{width:96px;height:auto;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.55));}
+  .foot-logo{height:90px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.35));}
+  .foot-brand .brand{color:var(--white);display:block;margin-top:1rem;}
   @media (max-width:760px){.foot-logo{margin:0 auto;}}
   nav ul{list-style:none;display:flex;gap:2.4rem;margin:0;padding:0;font-size:0.9rem;}
   nav a{text-decoration:none;color:#cfc9bd;transition:color .2s;letter-spacing:0.05em;text-transform:uppercase;font-weight:500;}
   nav a:hover{color:var(--gold);}
-  @media (max-width:760px){ nav ul{display:none;} }
+  @media (max-width:760px){
+    nav ul{display:none;}
+    .brand{font-size:1.05rem;letter-spacing:0.03em;white-space:nowrap;}
+    .nav-logo{height:34px;}
+    .btn-gold{padding:0.6rem 1rem;font-size:0.7rem;}
+  }
+  @media (max-width:420px){
+    .btn-gold .btn-gold-suffix{display:none;}
+  }
 
   .btn{
     display:inline-block;padding:1rem 2.4rem;
@@ -95,20 +109,22 @@
     min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
     position:relative;overflow:hidden;padding:2rem 1.5rem 6rem;
     background:
-      linear-gradient(180deg, rgba(33,31,28,0.35) 0%, rgba(33,31,28,0.68) 75%, var(--charcoal) 100%),
+      linear-gradient(180deg, rgba(33,31,28,0.58) 0%, rgba(33,31,28,0.5) 40%, rgba(33,31,28,0.8) 78%, var(--charcoal) 100%),
       url('images/hero-rooftop-dia.jpg') center/cover no-repeat;
   }
   .hero-content{position:relative;z-index:1;max-width:760px;}
-  .hero .eyebrow{color:var(--gold);font-size:0.9rem;}
+  .hero .eyebrow{color:var(--gold);font-size:0.9rem;text-shadow:0 2px 12px rgba(0,0,0,0.7),0 1px 2px rgba(0,0,0,0.9);}
   .hero h1{
     font-size:clamp(2.8rem,7.5vw,5.6rem);color:var(--white);font-weight:700;
     text-transform:uppercase;line-height:1.05;margin-top:0.9rem;letter-spacing:0.01em;
+    text-shadow:0 4px 20px rgba(0,0,0,0.5);
   }
   .hero .sub{
     font-family:'Fraunces',serif;font-style:italic;font-weight:400;
     color:var(--gold);font-size:1.3rem;margin-top:0.9rem;
+    text-shadow:0 2px 12px rgba(0,0,0,0.7),0 1px 2px rgba(0,0,0,0.9);
   }
-  .hero p.lede{max-width:540px;margin:1.8rem auto 0;color:#e4dfd3;font-size:1.15rem;}
+  .hero p.lede{max-width:540px;margin:1.8rem auto 0;color:#e4dfd3;font-size:1.15rem;text-shadow:0 2px 8px rgba(0,0,0,0.5);}
 
   .quickbook{
     position:relative;z-index:1;margin-top:2.6rem;
@@ -144,7 +160,8 @@
     aspect-ratio:4/3;border:1px solid var(--line);
     overflow:hidden;position:relative;
   }
-  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02);}
+  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02);transition:transform 0.6s ease;}
+  .photo-slot:hover img{transform:scale(1.06);}
   .photo-slot span{
     position:absolute;bottom:0;left:0;right:0;padding:0.6rem 0.8rem;
     background:linear-gradient(0deg, rgba(33,31,28,0.85), transparent);
@@ -167,13 +184,13 @@
   .price-banner{
     display:inline-flex;flex-direction:column;gap:0.25rem;
     border:1px solid var(--gold);padding:1.6rem 2.8rem;margin:2.2rem auto 3.2rem;
-    background:var(--white);
+    background:var(--white);box-shadow:0 12px 30px rgba(33,31,28,0.08);
   }
   .price-banner .amount{font-family:'Fraunces',serif;font-size:2.3rem;color:var(--ink);}
   .price-banner .amount span{font-size:1.05rem;color:var(--ink-dim);font-family:'Work Sans',sans-serif;}
   .price-banner .note{font-size:0.85rem;color:var(--gold-deep);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;}
 
-  .cal-wrap{max-width:460px;margin:0 auto;background:var(--white);padding:2rem;border:1px solid var(--line);}
+  .cal-wrap{max-width:460px;margin:0 auto;background:var(--white);padding:2rem;border:1px solid var(--line);box-shadow:0 12px 30px rgba(33,31,28,0.08);}
   .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;}
   .cal-head button{background:none;border:1px solid var(--gold);color:var(--gold-deep);width:36px;height:36px;cursor:pointer;font-size:1.1rem;border-radius:var(--radius);}
   .cal-head span{font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;}
@@ -257,13 +274,15 @@
       <li><a href="#disponibilidad">Disponibilidad</a></li>
       <li><a href="#reservar">Reservar</a></li>
     </ul>
-    <a href="#reservar" class="btn-gold">Reservar ahora</a>
+    <a href="#reservar" class="btn-gold">Reservar<span class="btn-gold-suffix"> ahora</span></a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="hero-content">
-    <img src="images/logo-mark.png" alt="Escudo de Casa de Porto" class="hero-logo">
+    <div class="hero-logo-wrap">
+      <img src="images/logo-mark.png" alt="Escudo de Casa de Porto" class="hero-logo">
+    </div>
     <p class="eyebrow">Centro Histórico · Cartagena de Indias</p>
     <h1>Casa de Porto</h1>
     <p class="sub">Calle Tumbamuertos</p>
@@ -472,7 +491,8 @@
 <footer>
   <div class="foot-grid">
     <div class="foot-brand">
-      <img src="images/logo-full.png" alt="Casa de Porto" class="foot-logo">
+      <img src="images/logo-mark.png" alt="Casa de Porto" class="foot-logo">
+      <span class="brand">Casa de Porto</span>
       <p>Una casa colonial privada en el centro histórico amurallado de Cartagena de Indias.</p>
     </div>
     <div>
