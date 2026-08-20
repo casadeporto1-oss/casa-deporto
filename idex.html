@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa de Porto · Centro Histórico, Cartagena</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#211f1c;
+    --charcoal-soft:#2b2824;
+    --cream:#faf7f1;
+    --cream-alt:#f2ede3;
+    --white:#ffffff;
+    --ink:#28251f;
+    --ink-dim:#716c60;
+    --gold:#bd9752;
+    --gold-deep:#9c7c3d;
+    --line:#e4dccb;
+    --green:#4c6b4f;
+    --radius:2px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;font-size:130%;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:0.01em;
+  }
+  .eyebrow{
+    font-family:'Work Sans',sans-serif;
+    font-size:0.8rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:600;
+  }
+  a{color:inherit;}
+  section{padding:6.5rem 1.5rem;}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .light{background:var(--white);}
+  .cream{background:var(--cream-alt);}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--charcoal);
+  }
+  nav .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.3rem 1.5rem;max-width:var(--maxw);
+  }
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:0.06em;color:var(--white);text-transform:uppercase;}
+  .brand-lockup{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
+  .nav-logo{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.6));}
+  .hero-logo-wrap{
+    width:132px;height:132px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(33,31,28,0.55) 0%, rgba(33,31,28,0.15) 65%, transparent 75%);
+  }
+  .hero-logo{width:96px;height:auto;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.55));}
+  .foot-logo{height:90px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,0.35));}
+  .foot-brand .brand{color:var(--white);display:block;margin-top:1rem;}
+  @media (max-width:760px){.foot-logo{margin:0 auto;}}
+  nav ul{list-style:none;display:flex;gap:2.4rem;margin:0;padding:0;font-size:0.9rem;}
+  nav a{text-decoration:none;color:#cfc9bd;transition:color .2s;letter-spacing:0.05em;text-transform:uppercase;font-weight:500;}
+  nav a:hover{color:var(--gold);}
+  @media (max-width:760px){
+    nav ul{display:none;}
+    .brand{font-size:1.05rem;letter-spacing:0.03em;white-space:nowrap;}
+    .nav-logo{height:34px;}
+    .btn-gold{padding:0.6rem 1rem;font-size:0.7rem;}
+  }
+  @media (max-width:420px){
+    .btn-gold .btn-gold-suffix{display:none;}
+  }
+
+  .btn{
+    display:inline-block;padding:1rem 2.4rem;
+    background:var(--gold);color:var(--charcoal);text-decoration:none;
+    font-size:0.88rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+    border-radius:var(--radius);transition:background .2s;border:1px solid var(--gold);
+  }
+  .btn:hover{background:var(--gold-deep);border-color:var(--gold-deep);}
+  .btn.ghost{background:transparent;border:1px solid var(--white);color:var(--white);}
+  .btn.ghost:hover{background:rgba(255,255,255,0.1);}
+  .btn-gold{
+    background:var(--gold);color:var(--charcoal);border:1px solid var(--gold);
+    padding:0.7rem 1.6rem;font-size:0.82rem;font-weight:600;letter-spacing:0.07em;
+    text-transform:uppercase;text-decoration:none;border-radius:var(--radius);white-space:nowrap;
+  }
+  .btn-gold:hover{background:#d0b06c;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    position:relative;overflow:hidden;padding:2rem 1.5rem 6rem;
+    background:
+      linear-gradient(180deg, rgba(33,31,28,0.58) 0%, rgba(33,31,28,0.5) 40%, rgba(33,31,28,0.8) 78%, var(--charcoal) 100%),
+      url('images/hero-rooftop-dia.jpg') center/cover no-repeat;
+  }
+  .hero-content{position:relative;z-index:1;max-width:640px;}
+  .hero .eyebrow{color:var(--gold);font-size:0.78rem;text-shadow:0 2px 12px rgba(0,0,0,0.7),0 1px 2px rgba(0,0,0,0.9);margin-top:0.6rem;}
+  .hero h1{
+    font-size:clamp(1.9rem,4.2vw,3rem);color:var(--white);font-weight:600;
+    text-transform:uppercase;line-height:1.2;margin-top:1rem;letter-spacing:0.05em;
+    text-shadow:0 4px 20px rgba(0,0,0,0.5);
+  }
+  .hero-address{
+    font-family:'Work Sans',sans-serif;font-weight:400;font-size:0.85rem;
+    letter-spacing:0.08em;text-transform:uppercase;color:#e4dfd3;margin-top:0.6rem;
+    text-shadow:0 2px 12px rgba(0,0,0,0.7),0 1px 2px rgba(0,0,0,0.9);
+  }
+  .hero-tagline{
+    font-family:'Work Sans',sans-serif;font-weight:300;font-size:0.95rem;line-height:1.75;
+    color:#e4dfd3;max-width:560px;margin:0.5rem auto 0;letter-spacing:0.01em;
+    text-shadow:0 2px 8px rgba(0,0,0,0.6);
+  }
+  .hero-tagline.first{margin-top:1.5rem;}
+
+  .quickbook{
+    position:relative;z-index:1;margin-top:2.6rem;
+    background:var(--white);border-radius:var(--radius);
+    display:flex;flex-wrap:wrap;align-items:end;gap:1px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.28);overflow:hidden;
+  }
+  .qb-field{padding:0.9rem 1.4rem;text-align:left;min-width:150px;}
+  .qb-field label{display:block;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:0.3rem;font-weight:600;}
+  .qb-field input{border:none;font-family:'Work Sans',sans-serif;font-size:1rem;color:var(--ink);width:100%;padding:0;background:transparent;}
+  .qb-field input:focus{outline:none;}
+  .quickbook .btn{border-radius:0;padding:1.2rem 2.4rem;align-self:stretch;display:flex;align-items:center;}
+  @media (max-width:760px){ .quickbook{flex-direction:column;} .qb-field{width:100%;} .quickbook .btn{width:100%;justify-content:center;} }
+
+  /* ---------- intro ---------- */
+  .intro{text-align:center;}
+  .intro .wrap{max-width:760px;}
+  .intro p{font-size:1.3rem;color:var(--ink-dim);font-weight:300;}
+  .intro p em{color:var(--ink);font-style:italic;}
+
+  /* ---------- amenities ---------- */
+  .amenities-head{text-align:center;margin-bottom:3.8rem;}
+  .amenities-head h2{font-size:2.6rem;margin-top:0.5rem;}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.4rem;
+  }
+  .amenity{padding:1.8rem 0;border-top:1px solid var(--line);}
+  .amenity svg{width:30px;height:30px;stroke:var(--gold-deep);fill:none;stroke-width:1.3;margin-bottom:1rem;}
+  .amenity h3{font-size:1.15rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;font-family:'Work Sans',sans-serif;}
+  .amenity p{font-size:0.98rem;color:var(--ink-dim);margin:0;}
+
+  .premium-services{
+    text-align:center;margin-top:3.5rem;padding-top:2.8rem;
+    border-top:1px solid var(--gold);
+  }
+  .premium-services p:last-child{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--ink);
+    max-width:640px;margin:0.9rem auto 0;line-height:1.6;
+  }
+
+  .photo-slot{
+    aspect-ratio:4/3;border:1px solid var(--line);
+    overflow:hidden;position:relative;
+  }
+  .photo-slot img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02);transition:transform 0.6s ease;}
+  .photo-slot:hover img{transform:scale(1.06);}
+  .photo-slot span{
+    position:absolute;bottom:0;left:0;right:0;padding:0.6rem 0.8rem;
+    background:linear-gradient(0deg, rgba(33,31,28,0.85), transparent);
+    font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:#f2ede3;
+  }
+  .photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:3.4rem;}
+  @media (max-width:680px){.photo-row{grid-template-columns:1fr 1fr;}}
+
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
+  }
+  .gallery-grid .photo-slot:nth-child(3n+1){grid-row:span 2;}
+  @media (max-width:680px){
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+    .gallery-grid .photo-slot:nth-child(3n+1){grid-row:span 1;}
+  }
+
+  /* ---------- availability ---------- */
+  .avail .wrap{text-align:center;}
+  .price-banner{
+    display:inline-flex;flex-direction:column;gap:0.25rem;
+    border:1px solid var(--gold);padding:1.6rem 2.8rem;margin:2.2rem auto 3.2rem;
+    background:var(--white);box-shadow:0 12px 30px rgba(33,31,28,0.08);
+  }
+  .price-banner .amount{font-family:'Fraunces',serif;font-size:2.3rem;color:var(--ink);}
+  .price-banner .amount span{font-size:1.05rem;color:var(--ink-dim);font-family:'Work Sans',sans-serif;}
+  .price-banner .note{font-size:0.85rem;color:var(--gold-deep);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;}
+
+  .cal-wrap{max-width:460px;margin:0 auto;background:var(--white);padding:2rem;border:1px solid var(--line);box-shadow:0 12px 30px rgba(33,31,28,0.08);}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem;}
+  .cal-head button{background:none;border:1px solid var(--gold);color:var(--gold-deep);width:36px;height:36px;cursor:pointer;font-size:1.1rem;border-radius:var(--radius);}
+  .cal-head span{font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+  .cal-grid .dow{font-size:0.72rem;color:var(--ink-dim);text-transform:uppercase;letter-spacing:0.05em;padding-bottom:4px;}
+  .cal-grid .day{
+    aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    font-size:0.88rem;border:1px solid var(--line);color:var(--ink);
+  }
+  .cal-grid .day.avail{color:var(--ink);border-color:rgba(76,107,79,0.5);}
+  .cal-grid .day.avail::after{content:"";width:4px;height:4px;background:var(--green);border-radius:50%;margin-left:4px;}
+  .cal-grid .day.busy{color:#b9b2a2;border-color:#e6d9c4;text-decoration:line-through;}
+  .cal-grid .day.empty{border:none;}
+  .cal-legend{display:flex;gap:1.5rem;justify-content:center;margin-top:1.5rem;font-size:0.82rem;color:var(--ink-dim);}
+  .cal-legend span{display:inline-flex;align-items:center;gap:0.4rem;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block;}
+  .sync-note{margin-top:2.2rem;font-size:0.85rem;color:var(--ink-dim);border-top:1px solid var(--line);padding-top:1.3rem;max-width:460px;margin-left:auto;margin-right:auto;}
+
+  /* ---------- reserve form ---------- */
+  .reserve .wrap{max-width:600px;}
+  .reserve-head{text-align:center;margin-bottom:2.8rem;}
+  form{display:grid;gap:1.4rem;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+  @media (max-width:560px){.row2{grid-template-columns:1fr;}}
+  label{display:block;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:0.5rem;font-weight:600;}
+  input,textarea{
+    width:100%;background:var(--white);border:1px solid var(--line);
+    color:var(--ink);padding:0.9rem 1rem;font-family:'Work Sans',sans-serif;font-size:1.02rem;border-radius:var(--radius);
+  }
+  input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+  textarea{resize:vertical;min-height:100px;}
+  .form-note{font-size:0.85rem;color:var(--ink-dim);margin-top:0.4rem;}
+
+  /* ---------- how it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem;margin-top:3rem;text-align:left;}
+  @media (max-width:680px){.steps{grid-template-columns:1fr;}}
+  .step .num{font-family:'Fraunces',serif;font-style:italic;color:var(--gold-deep);font-size:1.8rem;}
+  .step h3{font-size:1.1rem;margin:0.5rem 0 0.4rem;font-family:'Work Sans',sans-serif;font-weight:500;}
+  .step p{font-size:0.95rem;color:var(--ink-dim);margin:0;}
+
+  footer{background:var(--charcoal);color:#cfc9bd;padding:4.5rem 1.5rem 2rem;}
+  .foot-grid{
+    max-width:var(--maxw);margin:0 auto;display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;gap:3rem;text-align:left;
+  }
+  @media (max-width:760px){.foot-grid{grid-template-columns:1fr;text-align:center;gap:2.4rem;}}
+  .foot-brand .brand{color:var(--white);}
+  .foot-brand p{color:#a49e90;font-size:0.95rem;margin-top:0.8rem;max-width:280px;}
+  @media (max-width:760px){.foot-brand p{margin-left:auto;margin-right:auto;}}
+  footer h4{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
+  footer .foot-links{list-style:none;margin:0;padding:0;display:grid;gap:0.7rem;font-size:0.95rem;}
+  .foot-bottom{border-top:1px solid #3a3630;margin-top:3.5rem;padding-top:1.6rem;text-align:center;font-size:0.78rem;color:#7d7767;}
+
+  .preview-overlay{
+    position:fixed;inset:0;background:rgba(33,31,28,0.85);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:1.5rem;
+  }
+  .preview-overlay.open{display:flex;}
+  .preview-card{
+    background:var(--white);border-top:4px solid var(--gold);max-width:440px;width:100%;
+    padding:2.2rem;text-align:left;
+  }
+  .preview-card h3{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--ink);margin-bottom:1rem;}
+  .preview-card dl{margin:0;font-size:0.95rem;}
+  .preview-card dt{color:var(--gold-deep);text-transform:uppercase;font-size:0.72rem;letter-spacing:0.05em;margin-top:0.9rem;font-weight:600;}
+  .preview-card dd{margin:0.15rem 0 0;color:var(--ink);}
+  .preview-card .note{margin-top:1.5rem;font-size:0.82rem;color:var(--ink-dim);}
+  .preview-card button{margin-top:1.7rem;width:100%;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand-lockup">
+      <img src="images/logo-mark.png" alt="Escudo de Casa de Porto" class="nav-logo">
+      <span class="brand">Casa de Porto</span>
+    </a>
+    <ul>
+      <li><a href="#casa">La casa</a></li>
+      <li><a href="#disponibilidad">Disponibilidad</a></li>
+      <li><a href="#reservar">Reservar</a></li>
+    </ul>
+    <a href="#reservar" class="btn-gold">Reservar<span class="btn-gold-suffix"> ahora</span></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="images/logo-mark.png" alt="Escudo de Casa de Porto" class="hero-logo">
+    </div>
+    <h1>Casa de Porto</h1>
+    <p class="hero-address">Calle Tumbamuertos # 38-91</p>
+    <p class="eyebrow">Centro Histórico · Cartagena de Indias</p>
+    <p class="hero-tagline first">Una hermosa joya colonial, situada en el corazón de la ciudad amurallada.</p>
+    <p class="hero-tagline">Para disfrutarla en exclusividad con tu familia y amigos — rooftop con piscina y jacuzzi, con vista al mar y al entorno de monumentos llenos de historia.</p>
+  </div>
+  <div class="quickbook" id="quickbook">
+    <div class="qb-field">
+      <label>Llegada</label>
+      <input type="date" id="qbLlegada">
+    </div>
+    <div class="qb-field">
+      <label>Salida</label>
+      <input type="date" id="qbSalida">
+    </div>
+    <div class="qb-field">
+      <label>Huéspedes</label>
+      <input type="number" id="qbHuespedes" min="1" value="2">
+    </div>
+    <button type="button" class="btn" id="qbSubmit">Ver disponibilidad</button>
+  </div>
+</header>
+
+<section class="intro light">
+  <div class="wrap">
+    <p class="eyebrow">La experiencia</p>
+    <p style="margin-top:1.3rem;">Enfocada hacia grupos familiares, ejecutivos o corporativos que buscan <em>privacidad, espacio y servicio</em>, a la vez que disfrutar del encanto de esta hermosa y original ciudad, en Casa de Porto.</p>
+  </div>
+</section>
+
+<section class="amenities cream" id="casa">
+  <div class="wrap">
+    <div class="amenities-head">
+      <p class="eyebrow">La casa</p>
+      <h2>Cada detalle disponible</h2>
+    </div>
+    <div class="grid">
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><path d="M3 10 L12 3 L21 10 V21 H3 Z"/><path d="M9 21 V13 H15 V21"/></svg>
+        <h3>5 habitaciones</h3>
+        <p>Aire acondicionado y baño privado con agua caliente en cada una.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3 V21 M3 12 H21"/></svg>
+        <h3>Wifi en toda la casa</h3>
+        <p>Conexión estable para estadías de trabajo o de descanso.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M7 9 V6 H17 V9"/></svg>
+        <h3>Cocina con barra</h3>
+        <p>Espacio alterno para compartir — lugar perfecto para un snack.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20 H16 M12 16 V20"/></svg>
+        <h3>Smart TV</h3>
+        <p>En el vestíbulo o antesala.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><path d="M4 18v-4a2 2 0 012-2h12a2 2 0 012 2v4"/><path d="M4 18h16M6 12V7a1 1 0 011-1h10a1 1 0 011 1v5"/></svg>
+        <h3>Sala principal</h3>
+        <p>Amplio y cómodo salón con aire acondicionado.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M4 12 H20 M12 4 V20"/></svg>
+        <h3>Patio sevillano</h3>
+        <p>El corazón tradicional de la casa colonial, con mirador propio.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><path d="M3 17 Q7 12 12 17 T21 17"/><path d="M3 21 Q7 16 12 21 T21 21"/></svg>
+        <h3>Rooftop, piscina y jacuzzi</h3>
+        <p>Sobre los tejados del centro histórico, vista abierta a la ciudad.</p>
+      </div>
+      <div class="amenity">
+        <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="17" r="0.6"/></svg>
+        <h3>2 baños auxiliares</h3>
+        <p>Adicionales a los cinco baños privados de las habitaciones.</p>
+      </div>
+    </div>
+
+    <div class="premium-services">
+      <p class="eyebrow">Servicios premium incluidos</p>
+      <p>Camarera de 7:00 a.m. a 4:00 p.m. · Auxiliar de cocina para preparación de desayunos · Mayordomo y servicio de vigilancia las 24 horas</p>
+    </div>
+
+    <div class="photo-row">
+      <div class="photo-slot"><img src="images/fachada.jpg" alt="Fachada colonial de Casa de Porto"><span>Fachada</span></div>
+      <div class="photo-slot"><img src="images/patio-sevillano.jpg" alt="Patio sevillano de Casa de Porto"><span>Patio sevillano</span></div>
+      <div class="photo-slot"><img src="images/rooftop-terraza.jpg" alt="Terraza del rooftop de Casa de Porto"><span>Rooftop</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery light">
+  <div class="wrap">
+    <div class="amenities-head">
+      <p class="eyebrow">Galería</p>
+      <h2>Un vistazo por dentro</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="photo-slot"><img src="images/piscina-noche.jpg" alt="Piscina y jacuzzi de noche en el rooftop"></div>
+      <div class="photo-slot"><img src="images/entrada.jpg" alt="Entrada principal con puerta colonial y vitrales"></div>
+      <div class="photo-slot"><img src="images/sala.jpg" alt="Sala principal con decoración colonial"></div>
+      <div class="photo-slot"><img src="images/habitacion-doble.jpg" alt="Habitación con cama doble"></div>
+      <div class="photo-slot"><img src="images/habitacion-twin.jpg" alt="Habitación con dos camas individuales"></div>
+      <div class="photo-slot"><img src="images/rooftop-noche.jpg" alt="Zona de descanso en el rooftop de noche"></div>
+    </div>
+  </div>
+</section>
+
+<section class="avail cream" id="disponibilidad">
+  <div class="wrap">
+    <p class="eyebrow">Disponibilidad y tarifa</p>
+    <h2 style="margin-top:0.5rem;">Reserva directa</h2>
+
+    <div class="price-banner">
+      <span class="amount">$1.700.000 <span>COP / noche · este mes</span></span>
+      <span class="note">Estancia mínima: 2 noches</span>
+    </div>
+
+    <div class="cal-wrap">
+      <div class="cal-head">
+        <button id="prevMonth" aria-label="Mes anterior">‹</button>
+        <span id="calLabel"></span>
+        <button id="nextMonth" aria-label="Mes siguiente">›</button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-legend">
+        <span><i class="dot"></i> Disponible</span>
+        <span style="color:#b9b2a2;text-decoration:line-through;">Ocupado</span>
+      </div>
+    </div>
+
+    <p class="sync-note" id="syncNote">Cargando disponibilidad desde el calendario de Airbnb…</p>
+  </div>
+</section>
+
+<section class="reserve light" id="reservar">
+  <div class="wrap">
+    <div class="reserve-head">
+      <p class="eyebrow">Solicitar reserva</p>
+      <h2 style="margin-top:0.5rem;">Cuéntanos tu estadía</h2>
+    </div>
+
+    <form id="reserveForm">
+      <div>
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" required>
+      </div>
+      <div class="row2">
+        <div>
+          <label for="llegada">Fecha de llegada</label>
+          <input type="date" id="llegada" required>
+        </div>
+        <div>
+          <label for="salida">Fecha de salida</label>
+          <input type="date" id="salida" required>
+        </div>
+      </div>
+      <div class="row2">
+        <div>
+          <label for="huespedes">Número de huéspedes</label>
+          <input type="number" id="huespedes" min="1" required>
+        </div>
+        <div>
+          <label for="contacto">WhatsApp o correo</label>
+          <input type="text" id="contacto" required>
+        </div>
+      </div>
+      <div>
+        <label for="mensaje">Mensaje (opcional)</label>
+        <textarea id="mensaje" placeholder="Motivo del viaje, grupo, alguna solicitud especial..."></textarea>
+      </div>
+      <button type="submit" class="btn" style="width:100%;text-align:center;border:none;cursor:pointer;">Enviar solicitud por WhatsApp</button>
+      <p class="form-note">Al enviar, se abrirá WhatsApp con tu solicitud lista para enviar. Te confirmamos disponibilidad y compartimos los datos de la cuenta para transferencia.</p>
+    </form>
+
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Envías tu solicitud</h3>
+        <p>Con tus fechas y número de huéspedes, por WhatsApp o correo.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Confirmamos y compartimos cuenta</h3>
+        <p>Verificamos disponibilidad y te enviamos los datos para la transferencia.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Envías el comprobante</h3>
+        <p>Tu reserva queda confirmada y bloqueada en el calendario.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="preview-overlay" id="previewOverlay">
+  <div class="preview-card">
+    <h3>Vista previa de la solicitud</h3>
+    <p style="font-size:0.9rem;color:var(--ink-dim);">Así llegaría este mensaje por WhatsApp una vez esté configurado el número de contacto:</p>
+    <dl id="previewData"></dl>
+    <p class="note">Este es un piloto — la solicitud aún no se envió a ningún lado.</p>
+    <button class="btn" style="border:none;cursor:pointer;" onclick="document.getElementById('previewOverlay').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="images/logo-mark.png" alt="Casa de Porto" class="foot-logo">
+      <span class="brand">Casa de Porto</span>
+      <p>Una casa colonial privada en el centro histórico amurallado de Cartagena de Indias.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <ul class="foot-links">
+        <li><a href="#casa">La casa</a></li>
+        <li><a href="#disponibilidad">Disponibilidad</a></li>
+        <li><a href="#reservar">Reservar</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul class="foot-links">
+        <li>Calle Tumbamuertos, Centro Histórico</li>
+        <li>Cartagena de Indias, Colombia</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">Fotografías de la propiedad próximamente. Datos de contacto y cuenta bancaria pendientes de configurar.</div>
+</footer>
+
+<script>
+  // ----- Config: reemplazar antes de publicar -----
+  const OWNER_WHATSAPP = "573214638874"; // WhatsApp real de Casa de Porto
+
+  // ----- Calendario de disponibilidad, alimentado por la Hoja de Google -----
+  // Pega aquí la URL que te da Google Sheets al publicar la hoja "Airbnb" como CSV
+  // (Archivo > Compartir > Publicar en la web > formato CSV).
+  const AIRBNB_SHEET_CSV_URL = "PEGA_AQUI_TU_URL_CSV_PUBLICADA";
+
+  const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  const dowNames = ["Do","Lu","Ma","Mi","Ju","Vi","Sa"];
+  let viewDate = new Date(2026, 7, 1); // Agosto 2026
+  let blockedRanges = [];
+
+  function parseCsvDate(str){
+    // Espera fechas en formato AAAA-MM-DD
+    const [y, m, d] = str.trim().split("-").map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  async function loadBlockedDates(){
+    const note = document.getElementById('syncNote');
+    if (AIRBNB_SHEET_CSV_URL.startsWith("PEGA_AQUI")) {
+      note.textContent = "Calendario en configuración: aún falta conectar la hoja con las fechas de Airbnb.";
+      renderCalendar();
+      return;
+    }
+    try {
+      const res = await fetch(AIRBNB_SHEET_CSV_URL);
+      const text = await res.text();
+      const rows = text.trim().split("\n").slice(1); // se salta el encabezado
+      blockedRanges = rows
+        .filter(r => r.includes(","))
+        .map(r => {
+          const [inicio, fin] = r.split(",");
+          return { inicio: parseCsvDate(inicio), fin: parseCsvDate(fin) };
+        });
+      note.textContent = "Disponibilidad sincronizada automáticamente con el calendario de Airbnb de Casa de Porto.";
+    } catch (e) {
+      note.textContent = "No se pudo cargar la disponibilidad en este momento. Escríbenos para confirmar fechas.";
+    }
+    renderCalendar();
+  }
+
+  function isBlocked(date){
+    return blockedRanges.some(r => date >= r.inicio && date < r.fin);
+  }
+
+  function renderCalendar(){
+    const year = viewDate.getFullYear();
+    const month = viewDate.getMonth();
+    document.getElementById('calLabel').textContent = `${monthNames[month]} ${year}`;
+
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    dowNames.forEach(d => {
+      const el = document.createElement('div');
+      el.className = 'dow';
+      el.textContent = d;
+      grid.appendChild(el);
+    });
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'day empty';
+      grid.appendChild(empty);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const cellDate = new Date(year, month, d);
+      const cell = document.createElement('div');
+      cell.className = isBlocked(cellDate) ? 'day busy' : 'day avail';
+      cell.textContent = d;
+      grid.appendChild(cell);
+    }
+  }
+  document.getElementById('prevMonth').addEventListener('click', () => {
+    viewDate.setMonth(viewDate.getMonth() - 1);
+    renderCalendar();
+  });
+  document.getElementById('nextMonth').addEventListener('click', () => {
+    viewDate.setMonth(viewDate.getMonth() + 1);
+    renderCalendar();
+  });
+  loadBlockedDates();
+
+  // ----- Barra de reserva rápida del hero -> precarga el formulario -----
+  document.getElementById('qbSubmit').addEventListener('click', function(){
+    const llegada = document.getElementById('qbLlegada').value;
+    const salida = document.getElementById('qbSalida').value;
+    const huespedes = document.getElementById('qbHuespedes').value;
+    if (llegada) document.getElementById('llegada').value = llegada;
+    if (salida) document.getElementById('salida').value = salida;
+    if (huespedes) document.getElementById('huespedes').value = huespedes;
+    document.getElementById('disponibilidad').scrollIntoView({behavior:'smooth'});
+  });
+
+  // ----- Formulario de solicitud -> WhatsApp -----
+  document.getElementById('reserveForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const llegada = document.getElementById('llegada').value;
+    const salida = document.getElementById('salida').value;
+    const huespedes = document.getElementById('huespedes').value;
+    const contacto = document.getElementById('contacto').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    if (OWNER_WHATSAPP.startsWith("PEGA_AQUI")) {
+      document.getElementById('previewData').innerHTML = `
+        <dt>Nombre</dt><dd>${nombre}</dd>
+        <dt>Llegada</dt><dd>${llegada}</dd>
+        <dt>Salida</dt><dd>${salida}</dd>
+        <dt>Huéspedes</dt><dd>${huespedes}</dd>
+        <dt>Contacto</dt><dd>${contacto}</dd>
+        <dt>Mensaje</dt><dd>${mensaje || '-'}</dd>
+      `;
+      document.getElementById('previewOverlay').classList.add('open');
+      return;
+    }
+
+    const texto = `Hola, quiero solicitar disponibilidad en Casa de Porto.%0A%0ANombre: ${nombre}%0ALlegada: ${llegada}%0ASalida: ${salida}%0AHuéspedes: ${huespedes}%0AContacto: ${contacto}%0AMensaje: ${mensaje || '-'}`;
+    window.open(`https://wa.me/${OWNER_WHATSAPP}?text=${texto}`, '_blank');
+  });
+</script>
+
+</body>
+</html>
