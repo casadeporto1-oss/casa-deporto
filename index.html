@@ -66,6 +66,10 @@
   .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;letter-spacing:0.06em;color:var(--white);text-transform:uppercase;}
   .brand-lockup{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
   .nav-logo{height:44px;width:auto;display:block;filter:drop-shadow(0 1px 4px rgba(0,0,0,0.6));}
+  .nav-wordmark{height:22px;width:auto;display:block;}
+  .hero-wordmark{width:min(420px,80vw);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 4px 20px rgba(0,0,0,0.5));}
+  .foot-wordmark{height:26px;width:auto;display:block;margin-top:1rem;}
+  @media (max-width:760px){.foot-wordmark{margin-left:auto;margin-right:auto;}.nav-wordmark{height:17px;}}
   .hero-logo-wrap{
     width:132px;height:132px;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
     border-radius:50%;
@@ -135,9 +139,7 @@
   .hero-content{position:relative;z-index:2;max-width:640px;}
   .hero .eyebrow{color:var(--gold);font-size:0.78rem;text-shadow:0 2px 12px rgba(0,0,0,0.7),0 1px 2px rgba(0,0,0,0.9);margin-top:0.6rem;}
   .hero h1{
-    font-size:clamp(1.9rem,4.2vw,3rem);color:var(--white);font-weight:600;
-    text-transform:uppercase;line-height:1.2;margin-top:1rem;letter-spacing:0.05em;
-    text-shadow:0 4px 20px rgba(0,0,0,0.5);
+    margin-top:1rem;line-height:1;
   }
   .hero-address{
     font-family:'Work Sans',sans-serif;font-weight:400;font-size:0.85rem;
@@ -276,6 +278,14 @@
   footer h4{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
   footer .foot-links{list-style:none;margin:0;padding:0;display:grid;gap:0.7rem;font-size:0.95rem;}
   .foot-bottom{border-top:1px solid #3a3630;margin-top:3.5rem;padding-top:1.6rem;text-align:center;font-size:0.78rem;color:#7d7767;}
+  .foot-social{display:grid;gap:0.9rem;margin-top:1.4rem;}
+  .foot-social a{
+    display:flex;align-items:center;gap:0.7rem;text-decoration:none;
+    color:#cfc9bd;font-size:0.92rem;transition:color .2s;
+  }
+  .foot-social a:hover{color:var(--gold);}
+  .foot-social svg{width:22px;height:22px;flex-shrink:0;color:var(--gold);}
+  @media (max-width:760px){.foot-social{justify-items:center;}.foot-social a{justify-content:center;}}
 
   .preview-overlay{
     position:fixed;inset:0;background:rgba(33,31,28,0.85);z-index:100;
@@ -300,7 +310,7 @@
   <div class="wrap">
     <a href="#" class="brand-lockup">
       <img src="images/logo-mark.png" alt="Escudo de Casa de Porto" class="nav-logo">
-      <span class="brand">Casa de Porto</span>
+      <img src="images/wordmark-light.png" alt="Casa de Porto" class="nav-wordmark">
     </a>
     <ul>
       <li><a href="#casa">La casa</a></li>
@@ -323,11 +333,9 @@
     <div class="hero-logo-wrap">
       <img src="images/logo-mark.png" alt="Escudo de Casa de Porto" class="hero-logo">
     </div>
-    <h1>Casa de Porto</h1>
+    <h1><img src="images/wordmark-light.png" alt="Casa de Porto" class="hero-wordmark"></h1>
     <p class="hero-address">Calle Tumbamuertos # 38-91</p>
     <p class="eyebrow">Centro Histórico · Cartagena de Indias</p>
-    <p class="hero-tagline first">Una hermosa joya colonial, situada en el corazón de la ciudad amurallada.</p>
-    <p class="hero-tagline">Para disfrutarla en exclusividad con tu familia y amigos — rooftop con piscina y jacuzzi, con vista al mar y al entorno de monumentos llenos de historia.</p>
   </div>
   <div class="quickbook" id="quickbook">
     <div class="qb-field">
@@ -349,7 +357,7 @@
 <section class="intro light">
   <div class="wrap">
     <p class="eyebrow">La experiencia</p>
-    <p style="margin-top:1.3rem;">Enfocada hacia grupos familiares, ejecutivos o corporativos que buscan <em>privacidad, espacio y servicio</em>, a la vez que disfrutar del encanto de esta hermosa y original ciudad, en Casa de Porto.</p>
+    <p style="margin-top:1.3rem;">Una hermosa joya colonial en el corazón de la Ciudad Amurallada. Disfruta de Casa de Porto en exclusiva con familia y amigos, con <em>rooftop, piscina y jacuzzi</em>, vistas al mar y un entorno lleno de historia. Ideal para grupos familiares, ejecutivos y corporativos, además de bodas y recepciones que buscan privacidad, comodidad y un servicio excepcional.</p>
   </div>
 </section>
 
@@ -533,7 +541,7 @@
   <div class="foot-grid">
     <div class="foot-brand">
       <img src="images/logo-mark.png" alt="Casa de Porto" class="foot-logo">
-      <span class="brand">Casa de Porto</span>
+      <img src="images/wordmark-light.png" alt="Casa de Porto" class="foot-wordmark">
       <p>Una casa colonial privada en el centro histórico amurallado de Cartagena de Indias.</p>
     </div>
     <div>
@@ -550,9 +558,23 @@
         <li>Calle Tumbamuertos, Centro Histórico</li>
         <li>Cartagena de Indias, Colombia</li>
       </ul>
+      <div class="foot-social">
+        <a href="https://instagram.com/_casadeporto" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          <span>@_casadeporto</span>
+        </a>
+        <a href="https://facebook.com/casadeporto" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.8h2.8l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg>
+          <span>Casa de Porto</span>
+        </a>
+        <a href="mailto:info@casa-deporto.com" aria-label="Correo electrónico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+          <span>info@casa-deporto.com</span>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="foot-bottom">Fotografías de la propiedad próximamente. Datos de contacto y cuenta bancaria pendientes de configurar.</div>
+  <div class="foot-bottom">© Casa de Porto · Centro Histórico de Cartagena de Indias</div>
 </footer>
 
 <script>
