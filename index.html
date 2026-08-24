@@ -289,6 +289,17 @@
   .foot-social svg{width:22px;height:22px;flex-shrink:0;color:var(--gold);}
   @media (max-width:760px){.foot-social{justify-items:center;}.foot-social a{justify-content:center;}}
 
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:90;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.28);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .wa-float:hover{transform:scale(1.08);box-shadow:0 8px 26px rgba(0,0,0,0.35);}
+  .wa-float svg{width:32px;height:32px;fill:#fff;}
+  @media (max-width:760px){.wa-float{bottom:18px;right:18px;width:52px;height:52px;}.wa-float svg{width:28px;height:28px;}}
+
   .preview-overlay{
     position:fixed;inset:0;background:rgba(33,31,28,0.85);z-index:100;
     display:none;align-items:center;justify-content:center;padding:1.5rem;
@@ -566,6 +577,10 @@
         <li>Cartagena de Indias, Colombia</li>
       </ul>
       <div class="foot-social">
+        <a href="https://wa.me/573214638874?text=Hola,%20me%20interesa%20reservar%20en%20Casa%20de%20Porto." target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 14.5 3.6 13.3 3.6 12 3.6 7.4 7.4 3.6 12 3.6S20.4 7.4 20.4 12 16.6 20 12 20zm3.5-5.6c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 5 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+          <span>+57 321 463 8874</span>
+        </a>
         <a href="https://instagram.com/_casadeporto" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
           <span>@_casadeporto</span>
@@ -583,6 +598,10 @@
   </div>
   <div class="foot-bottom">© Casa de Porto · Centro Histórico de Cartagena de Indias</div>
 </footer>
+
+<a href="https://wa.me/573214638874?text=Hola,%20me%20interesa%20reservar%20en%20Casa%20de%20Porto." target="_blank" rel="noopener" class="wa-float" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 5 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.5 0-3-.4-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 14.5 3.6 13.3 3.6 12 3.6 7.4 7.4 3.6 12 3.6S20.4 7.4 20.4 12 16.6 20 12 20z"/></svg>
+</a>
 
 <script>
   // ----- Config: reemplazar antes de publicar -----
