@@ -187,9 +187,17 @@
     text-align:center;margin-top:3.5rem;padding-top:2.8rem;
     border-top:1px solid var(--gold);
   }
-  .premium-services p:last-child{
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--ink);
-    max-width:640px;margin:0.9rem auto 0;line-height:1.6;
+  .premium-services .eyebrow{font-size:1.05rem;letter-spacing:0.18em;}
+  .premium-list{
+    list-style:none;margin:1.4rem auto 0;padding:0;max-width:560px;
+    display:grid;gap:0.9rem;
+  }
+  .premium-list li{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--ink);
+    line-height:1.5;display:flex;align-items:center;justify-content:center;gap:0.6rem;
+  }
+  .premium-list li::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;
   }
 
   .photo-slot{
@@ -389,6 +397,11 @@
         <p>Aire acondicionado y baño privado con agua caliente en cada una.</p>
       </div>
       <div class="amenity">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="14" cy="12" r="2.5"/><path d="M14 12 v2"/></svg>
+        <h3>Caja de seguridad</h3>
+        <p>Una en cada habitación, para guardar tus objetos de valor con tranquilidad.</p>
+      </div>
+      <div class="amenity">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3 V21 M3 12 H21"/></svg>
         <h3>Wifi en toda la casa</h3>
         <p>Conexión estable para estadías de trabajo o de descanso.</p>
@@ -411,32 +424,36 @@
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M4 12 H20 M12 4 V20"/></svg>
         <h3>Patio sevillano</h3>
-        <p>El corazón tradicional de la casa colonial, con mirador propio.</p>
+        <p>Es el corazón tradicional de la casa colonial, con una hermosa fuente de cascada.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><path d="M3 17 Q7 12 12 17 T21 17"/><path d="M3 21 Q7 16 12 21 T21 21"/></svg>
         <h3>Rooftop con piscina‑jacuzzi</h3>
-        <p>Sobre los tejados del centro histórico, vista abierta a la ciudad.</p>
+        <p>Con vista al mar y los monumentos llenos de historia, para disfrutar bajo la romántica luna o el sol tropical.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="17" r="0.6"/></svg>
-        <h3>2 baños auxiliares</h3>
-        <p>Adicionales a los cinco baños privados de las habitaciones.</p>
+        <h3>6 baños completos + 2 medios baños</h3>
+        <p>Un baño completo en cada habitación más un baño externo, todos con agua caliente, y 2 medios baños para mayor comodidad.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z"/></svg>
-        <h3>Planta eléctrica</h3>
-        <p>Energía de respaldo que mantiene la casa funcionando en caso de emergencia.</p>
+        <h3>Generador de energía</h3>
+        <p>Mantiene el servicio eléctrico de la casa en caso de fuerza mayor.</p>
       </div>
     </div>
 
     <div class="premium-services">
       <p class="eyebrow">Servicios premium incluidos</p>
-      <p>Camarera de 7:00 a.m. a 4:00 p.m. · Auxiliar de cocina para preparación de desayunos · Mayordomo y servicio de vigilancia las 24 horas</p>
+      <ul class="premium-list">
+        <li>Camarera de 7:00 a.m. a 4:00 p.m.</li>
+        <li>Auxiliar de cocina para preparación de desayunos</li>
+        <li>Mayordomo y servicio de vigilancia las 24 horas</li>
+      </ul>
     </div>
 
     <div class="photo-row">
-      <div class="photo-slot"><img src="images/fachada.jpg" alt="Fachada colonial de Casa de Porto"><span>Fachada</span></div>
+      <div class="photo-slot"><img src="images/fachada.jpg" alt="Zajuan y lobby de Casa de Porto"><span>Zajuan - Lobby</span></div>
       <div class="photo-slot"><img src="images/patio-sevillano.jpg" alt="Patio sevillano de Casa de Porto"><span>Patio sevillano</span></div>
       <div class="photo-slot"><img src="images/rooftop-terraza.jpg" alt="Terraza del rooftop de Casa de Porto"><span>Rooftop</span></div>
     </div>
