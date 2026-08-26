@@ -217,6 +217,12 @@
   .gallery-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;
   }
+  .gallery-cat{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+    font-size:1.35rem;color:var(--gold-deep);text-align:center;
+    margin:3rem 0 1.4rem;
+  }
+  .gallery-cat:first-of-type{margin-top:1rem;}
   .gallery-grid .photo-slot{aspect-ratio:4/3;}
   @media (max-width:680px){
     .gallery-grid{grid-template-columns:1fr 1fr;}
@@ -466,13 +472,50 @@
       <p class="eyebrow">Galería</p>
       <h2>Un recorrido por dentro</h2>
     </div>
+
+    <h3 class="gallery-cat">Zaguán y entrada</h3>
     <div class="gallery-grid">
-      <div class="photo-slot"><img src="images/piscina-noche.jpg" alt="Piscina y jacuzzi de noche en el rooftop"></div>
-      <div class="photo-slot"><img src="images/entrada.jpg" alt="Entrada principal con puerta colonial y vitrales"></div>
-      <div class="photo-slot"><img src="images/sala.jpg" alt="Sala principal con decoración colonial"></div>
+      <div class="photo-slot"><img src="images/entrada.jpg" alt="Zaguán con puerta colonial y vitrales"></div>
+      <div class="photo-slot"><img src="images/entrada-interna.jpg" alt="Entrada interior con lámpara colonial"></div>
+      <div class="photo-slot"><img src="images/vista-casa.jpg" alt="Vista del patio central de la casa"></div>
+    </div>
+
+    <h3 class="gallery-cat">Salas y estancias</h3>
+    <div class="gallery-grid">
+      <div class="photo-slot"><img src="images/sala-principal.jpg" alt="Sala principal con aire acondicionado"></div>
+      <div class="photo-slot"><img src="images/sala-principal2.jpg" alt="Vista de la sala principal"></div>
+      <div class="photo-slot"><img src="images/sala-visitas.jpg" alt="Sala de visitas con Smart TV"></div>
+    </div>
+
+    <h3 class="gallery-cat">Habitaciones</h3>
+    <div class="gallery-grid">
       <div class="photo-slot"><img src="images/habitacion-doble.jpg" alt="Habitación con cama doble"></div>
       <div class="photo-slot"><img src="images/habitacion-twin.jpg" alt="Habitación con dos camas individuales"></div>
-      <div class="photo-slot"><img src="images/rooftop-noche.jpg" alt="Zona de descanso en el rooftop de noche"></div>
+      <div class="photo-slot"><img src="images/habitacion-5.jpg" alt="Habitación con dos camas y espejo dorado"></div>
+    </div>
+
+    <h3 class="gallery-cat">Cocina y comedor</h3>
+    <div class="gallery-grid">
+      <div class="photo-slot"><img src="images/cocina.jpg" alt="Cocina equipada con nevera y estufa"></div>
+      <div class="photo-slot"><img src="images/barra-cocina.jpg" alt="Barra de la cocina con bancos"></div>
+      <div class="photo-slot"><img src="images/comedor.jpg" alt="Comedor junto al patio sevillano"></div>
+    </div>
+
+    <h3 class="gallery-cat">Patio sevillano</h3>
+    <div class="gallery-grid">
+      <div class="photo-slot"><img src="images/patio-sevillano-nuevo.jpg" alt="Patio sevillano con fuente de cascada"></div>
+      <div class="photo-slot"><img src="images/vista-interna.jpg" alt="Vista interior del patio y balcones"></div>
+      <div class="photo-slot"><img src="images/entrada-interna2.jpg" alt="Zona de estar interior junto al patio"></div>
+    </div>
+
+    <h3 class="gallery-cat">Rooftop, piscina y jacuzzi</h3>
+    <div class="gallery-grid">
+      <div class="photo-slot"><img src="images/rt-piscina-dia.jpg" alt="Piscina del rooftop con vista a Cartagena"></div>
+      <div class="photo-slot"><img src="images/rt-asoleadoras-dia.jpg" alt="Asoleadoras del rooftop de día"></div>
+      <div class="photo-slot"><img src="images/rt-piscina-escalera.jpg" alt="Piscina del rooftop con escalera"></div>
+      <div class="photo-slot"><img src="images/rt-asoleadoras-noche.jpg" alt="Asoleadoras del rooftop de noche"></div>
+      <div class="photo-slot"><img src="images/rt-rooftop-noche.jpg" alt="Rooftop de noche con piscina iluminada"></div>
+      <div class="photo-slot"><img src="images/rt-bano-rooftop.jpg" alt="Baño del rooftop"></div>
     </div>
   </div>
 </section>
