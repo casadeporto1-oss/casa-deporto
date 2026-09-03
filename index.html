@@ -355,6 +355,47 @@
   .preview-card dd{margin:0.15rem 0 0;color:var(--ink);}
   .preview-card .note{margin-top:1.5rem;font-size:0.82rem;color:var(--ink-dim);}
   .preview-card button{margin-top:1.7rem;width:100%;}
+
+  /* ---------- ajustes para celular ---------- */
+  @media (max-width:760px){
+    html{font-size:118%;}
+    section{padding:3.6rem 1.2rem;}
+    .amenities-head{margin-bottom:2.2rem;}
+    .amenities-head h2{font-size:2rem;}
+    .intro p{font-size:1.05rem;}
+    .intro .wrap{max-width:100%;}
+    .hero{min-height:82vh;padding:2rem 1.2rem 3.5rem;}
+    .hero-address{font-size:0.88rem;letter-spacing:0.12em;}
+    .hero .eyebrow{font-size:1rem;}
+    .hero-logo-wrap{width:104px;height:104px;}
+    .hero-logo{width:74px;}
+    .grid{gap:1.5rem;}
+    .amenity{padding:1.4rem 0;}
+    .gallery-cat{font-size:1.15rem;margin:2.2rem 0 1rem;}
+    .premium-services{margin-top:2.6rem;padding-top:2rem;}
+    .premium-list li{font-size:1.02rem;}
+    .price-banner{padding:1.3rem 1.6rem;margin:1.6rem auto 2.4rem;}
+    .price-banner .amount{font-size:1.7rem;}
+    .cal-wrap{padding:1.2rem;}
+    .foot-grid{gap:2.2rem;}
+    .steps{margin-top:2.2rem;gap:1.8rem;}
+    .alt-booking-sep::before,.alt-booking-sep::after{width:20%;}
+    .btn-airbnb{padding:0.9rem 1rem;font-size:0.8rem;}
+  }
+
+  /* En celular la galeria va a 2 columnas: si una categoria tiene numero impar
+     de fotos, la ultima ocupa el ancho completo para que no quede hueco */
+  @media (max-width:680px){
+    .gallery-grid .photo-slot:last-child:nth-child(odd){grid-column:1 / -1;}
+    .photo-row .photo-slot:last-child:nth-child(odd){grid-column:1 / -1;}
+  }
+
+  /* pantallas muy pequenas */
+  @media (max-width:400px){
+    html{font-size:110%;}
+    .amenities-head h2{font-size:1.75rem;}
+    section{padding:3rem 1rem;}
+  }
 </style>
 </head>
 <body>
