@@ -233,6 +233,7 @@
   }
   @media (min-width:681px){
     .gallery-2col{grid-template-columns:repeat(2,1fr);}
+    .gallery-2col .photo-slot:last-child:nth-child(odd){grid-column:1 / -1;aspect-ratio:16/9;}
   }
   .gallery-cat{
     font-family:'Fraunces',serif;font-style:italic;font-weight:500;
@@ -386,10 +387,7 @@
     .hero-logo{width:74px;}
     .grid{gap:1.5rem;}
     .amenity{padding:1.4rem 0;}
-    @media (min-width:681px){
-    .gallery-2col{grid-template-columns:repeat(2,1fr);}
-  }
-  .gallery-cat{font-size:1.15rem;margin:2.2rem 0 1rem;}
+    .gallery-cat{font-size:1.15rem;margin:2.2rem 0 1rem;}
     .premium-services{margin-top:2.6rem;padding-top:2rem;}
     .premium-list li{font-size:1.02rem;}
     .price-banner{padding:1.3rem 1.6rem;margin:1.6rem auto 2.4rem;}
@@ -578,6 +576,7 @@
       <div class="photo-slot"><img src="cuarto%20dos%20camas.jpg" alt="Habitación con dos camas sencillas"></div>
       <div class="photo-slot"><img src="habitacion%202.jpg" alt="Otra habitación de la casa"></div>
       <div class="photo-slot"><img src="Outlook-PHOTO-2023.jpg" alt="Habitación con cama doble, tocador y espejo"></div>
+      <div class="photo-slot"><img src="habitacion-verde.jpg" alt="Habitación con cama de bronce y cubrecama verde"></div>
     </div>
 
     <h3 class="gallery-cat">Cocina y comedor</h3>
