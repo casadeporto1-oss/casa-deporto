@@ -102,6 +102,35 @@
     .btn-gold .btn-gold-suffix{display:none;}
   }
 
+  /* ---------- selector de idioma ---------- */
+  .nav-right{display:flex;align-items:center;gap:0.85rem;flex-shrink:0;}
+  .lang-switch{
+    display:flex;flex-shrink:0;
+    border:1px solid rgba(74,44,26,0.28);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .lang-switch button{
+    background:transparent;border:none;color:var(--brown-soft);
+    font-family:'Work Sans',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;
+    padding:0.52rem 0.62rem;cursor:pointer;line-height:1;
+    transition:background .2s,color .2s;
+  }
+  .lang-switch button.active{background:var(--gold-deep);color:var(--cream);}
+  .lang-switch button:not(.active):hover{color:var(--gold-deep);}
+  @media (max-width:760px){
+    .nav-right{gap:0.5rem;}
+    .lang-switch button{padding:0.45rem 0.5rem;font-size:0.64rem;letter-spacing:0.06em;}
+    /* el logotipo cede ancho para que el selector de idioma nunca lo tape */
+    .brand-lockup{min-width:0;flex:1 1 auto;overflow:hidden;}
+    .nav-wordmark{
+      width:100%;min-width:0;height:16px;max-height:16px;
+      object-fit:contain;object-position:left center;
+    }
+  }
+  @media (max-width:430px){
+    .nav-wordmark{height:14px;max-height:14px;}
+  }
+
   .btn{
     display:inline-block;padding:1rem 2.4rem;
     background:var(--gold);color:var(--brown);text-decoration:none;
@@ -424,11 +453,16 @@
       <img src="images/wordmark-dark.png" alt="Casa de Porto" class="nav-wordmark">
     </a>
     <ul>
-      <li><a href="#casa">La casa</a></li>
-      <li><a href="#disponibilidad">Disponibilidad</a></li>
-      <li><a href="#reservar">Reservar</a></li>
+      <li><a href="#casa" data-en="The house">La casa</a></li>
+      <li><a href="#disponibilidad" data-en="Availability">Disponibilidad</a></li>
     </ul>
-    <a href="#reservar" class="btn-gold">Reservar<span class="btn-gold-suffix"> ahora</span></a>
+    <div class="nav-right">
+      <div class="lang-switch" id="langSwitch">
+        <button type="button" data-lang="es" class="active">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a href="#reservar" class="btn-gold" data-en-html="Book<span class=&quot;btn-gold-suffix&quot;> now</span>">Reservar<span class="btn-gold-suffix"> ahora</span></a>
+    </div>
   </div>
 </nav>
 
@@ -446,105 +480,105 @@
     </div>
     <h1><img src="images/wordmark-light.png" alt="Casa de Porto" class="hero-wordmark"></h1>
     <p class="hero-address">Calle Tumbamuertos # 38-91</p>
-    <p class="eyebrow">Centro Histórico · Cartagena de Indias</p>
+    <p class="eyebrow" data-en="Old Town · Cartagena de Indias">Centro Histórico · Cartagena de Indias</p>
   </div>
   <div class="quickbook" id="quickbook">
     <div class="qb-field">
-      <label>Llegada</label>
+      <label data-en="Check-in">Llegada</label>
       <input type="date" id="qbLlegada">
     </div>
     <div class="qb-field">
-      <label>Salida</label>
+      <label data-en="Check-out">Salida</label>
       <input type="date" id="qbSalida">
     </div>
     <div class="qb-field">
-      <label>Huéspedes</label>
+      <label data-en="Guests">Huéspedes</label>
       <input type="number" id="qbHuespedes" min="1" value="2">
     </div>
-    <button type="button" class="btn" id="qbSubmit">Ver disponibilidad</button>
+    <button type="button" class="btn" id="qbSubmit" data-en="Check availability">Ver disponibilidad</button>
   </div>
 </header>
 
 <section class="intro light">
   <div class="wrap">
-    <p class="eyebrow">La experiencia</p>
-    <p style="margin-top:1.3rem;">Adquirida por los años dedicados a la atención de Grupos Familiares, ejecutivos y corporativos, así como para bodas y recepciones, que buscan privacidad, comodidad, amplitud y un servicio excepcional, mientras disfrutan de la magia y autenticidad de esta hermosa y original ciudad.</p>
-    <p style="margin-top:1.1rem;">Una hermosa joya colonial en el corazón de la Ciudad Amurallada. Casa de Porto ofrece una experiencia exclusiva para disfrutar en familia, con amigos o en encuentros ejecutivos y corporativos. Cuenta con un espectacular <em>rooftop con Piscina - Jacuzzi</em>, vistas al mar y un entorno lleno de historia y encanto.</p>
-    <p style="margin-top:1.1rem;font-family:'Fraunces',serif;font-style:italic;color:var(--ink);">Todo esto, en Casa de Porto.</p>
+    <p class="eyebrow" data-en="The experience">La experiencia</p>
+    <p style="margin-top:1.3rem;" data-en="Built on years of hosting families, executives and corporate groups, as well as weddings and receptions, for guests who look for privacy, comfort, space and exceptional service while they enjoy the magic and authenticity of this beautiful, one-of-a-kind city.">Adquirida por los años dedicados a la atención de Grupos Familiares, ejecutivos y corporativos, así como para bodas y recepciones, que buscan privacidad, comodidad, amplitud y un servicio excepcional, mientras disfrutan de la magia y autenticidad de esta hermosa y original ciudad.</p>
+    <p style="margin-top:1.1rem;" data-en-html="A beautiful colonial gem in the heart of the Walled City. Casa de Porto offers an exclusive setting to enjoy with family, with friends or for executive and corporate gatherings. It features a spectacular &lt;em&gt;rooftop with Pool - Jacuzzi&lt;/em&gt;, sea views and surroundings full of history and charm.">Una hermosa joya colonial en el corazón de la Ciudad Amurallada. Casa de Porto ofrece una experiencia exclusiva para disfrutar en familia, con amigos o en encuentros ejecutivos y corporativos. Cuenta con un espectacular <em>rooftop con Piscina - Jacuzzi</em>, vistas al mar y un entorno lleno de historia y encanto.</p>
+    <p style="margin-top:1.1rem;font-family:'Fraunces',serif;font-style:italic;color:var(--ink);" data-en="All of this, at Casa de Porto.">Todo esto, en Casa de Porto.</p>
   </div>
 </section>
 
 <section class="amenities cream" id="casa">
   <div class="wrap">
     <div class="amenities-head">
-      <p class="eyebrow">La casa</p>
-      <h2>Cada detalle disponible</h2>
+      <p class="eyebrow" data-en="The house">La casa</p>
+      <h2 data-en="Every detail taken care of">Cada detalle disponible</h2>
     </div>
     <div class="grid">
       <div class="amenity">
         <svg viewBox="0 0 24 24"><path d="M3 10 L12 3 L21 10 V21 H3 Z"/><path d="M9 21 V13 H15 V21"/></svg>
-        <h3>5 habitaciones</h3>
-        <p>Aire acondicionado y baño privado con agua caliente en cada una.</p>
+        <h3 data-en="5 bedrooms">5 habitaciones</h3>
+        <p data-en="Air conditioning and a private bathroom with hot water in every room.">Aire acondicionado y baño privado con agua caliente en cada una.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="14" cy="12" r="2.5"/><path d="M14 12 v2"/></svg>
-        <h3>Cajas de seguridad</h3>
-        <p>Una en cada habitación, para guardar tus objetos de valor con tranquilidad.</p>
+        <h3 data-en="Safes">Cajas de seguridad</h3>
+        <p data-en="One in each bedroom, to keep your valuables safe.">Una en cada habitación, para guardar tus objetos de valor con tranquilidad.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3 V21 M3 12 H21"/></svg>
-        <h3>Wifi en toda la casa</h3>
-        <p>Conexión estable para estadías de trabajo o de descanso.</p>
+        <h3 data-en="Wi-Fi throughout the house">Wifi en toda la casa</h3>
+        <p data-en="A stable connection for work stays or holidays.">Conexión estable para estadías de trabajo o de descanso.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="10" rx="1"/><path d="M7 9 V6 H17 V9"/></svg>
-        <h3>Cocina</h3>
-        <p>El lugar perfecto para deleitar los platillos de la comida local.</p>
+        <h3 data-en="Kitchen">Cocina</h3>
+        <p data-en="The perfect place to enjoy the flavours of local cooking.">El lugar perfecto para deleitar los platillos de la comida local.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20 H16 M12 16 V20"/></svg>
-        <h3>Smart TV</h3>
-        <p>En el vestíbulo o antesala.</p>
+        <h3 data-en="Smart TV">Smart TV</h3>
+        <p data-en="In the entrance hall and sitting room.">En el vestíbulo o antesala.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><path d="M4 18v-4a2 2 0 012-2h12a2 2 0 012 2v4"/><path d="M4 18h16M6 12V7a1 1 0 011-1h10a1 1 0 011 1v5"/></svg>
-        <h3>Sala principal</h3>
-        <p>Amplio y cómodo salón con aire acondicionado.</p>
+        <h3 data-en="Main living room">Sala principal</h3>
+        <p data-en="A spacious, comfortable lounge with air conditioning.">Amplio y cómodo salón con aire acondicionado.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/><path d="M4 12 H20 M12 4 V20"/></svg>
-        <h3>Patio sevillano</h3>
-        <p>Es el corazón tradicional de la casa colonial, con una hermosa fuente de cascada.</p>
+        <h3 data-en="Sevillian courtyard">Patio sevillano</h3>
+        <p data-en="The traditional heart of the colonial house, with a beautiful cascading fountain.">Es el corazón tradicional de la casa colonial, con una hermosa fuente de cascada.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><path d="M3 17 Q7 12 12 17 T21 17"/><path d="M3 21 Q7 16 12 21 T21 21"/></svg>
-        <h3>Rooftop con Piscina - Jacuzzi</h3>
-        <p>Con vista al mar y los monumentos llenos de historia, para disfrutar bajo la romántica luna o el sol tropical.</p>
+        <h3 data-en="Rooftop with Pool - Jacuzzi">Rooftop con Piscina - Jacuzzi</h3>
+        <p data-en="Overlooking the sea and the city's historic landmarks, to enjoy under a romantic moon or the tropical sun.">Con vista al mar y los monumentos llenos de historia, para disfrutar bajo la romántica luna o el sol tropical.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="17" r="0.6"/></svg>
-        <h3>6 baños completos + 2 medios baños</h3>
-        <p>Un baño completo en cada habitación más un baño externo, todos con agua caliente, y 2 medios baños para mayor comodidad.</p>
+        <h3 data-en="6 full bathrooms + 2 half baths">6 baños completos + 2 medios baños</h3>
+        <p data-en="A full bathroom in every bedroom plus an outdoor bathroom, all with hot water, and 2 half baths for added convenience.">Un baño completo en cada habitación más un baño externo, todos con agua caliente, y 2 medios baños para mayor comodidad.</p>
       </div>
       <div class="amenity">
         <svg viewBox="0 0 24 24"><path d="M13 2 L4 14 H11 L10 22 L20 9 H13 Z"/></svg>
-        <h3>Generador de energía</h3>
-        <p>Mantiene el servicio eléctrico de la casa en caso de fuerza mayor.</p>
+        <h3 data-en="Backup generator">Generador de energía</h3>
+        <p data-en="Keeps the house powered in the event of an outage.">Mantiene el servicio eléctrico de la casa en caso de fuerza mayor.</p>
       </div>
     </div>
 
     <div class="premium-services">
-      <p class="eyebrow">Servicios premium incluidos</p>
+      <p class="eyebrow" data-en="Premium services included">Servicios premium incluidos</p>
       <ul class="premium-list">
-        <li>Camarera de 7:00 a.m. a 4:00 p.m.</li>
-        <li>Auxiliar de cocina para preparación de desayunos</li>
-        <li>Mayordomo y servicio de vigilancia las 24 horas</li>
+        <li data-en="Housekeeper from 7:00 a.m. to 4:00 p.m.">Camarera de 7:00 a.m. a 4:00 p.m.</li>
+        <li data-en="Kitchen assistant for breakfast preparation">Auxiliar de cocina para preparación de desayunos</li>
+        <li data-en="Butler and 24-hour security service">Mayordomo y servicio de vigilancia las 24 horas</li>
       </ul>
     </div>
 
     <div class="photo-row">
-      <div class="photo-slot"><img src="images/fachada.jpg" alt="Fachada de Casa de Porto"><span>Fachada</span></div>
-      <div class="photo-slot"><img src="images/patio-sevillano.jpg" alt="Comedor de Casa de Porto"><span>Comedor</span></div>
+      <div class="photo-slot"><img src="images/fachada.jpg" alt="Fachada de Casa de Porto"><span data-en="Facade">Fachada</span></div>
+      <div class="photo-slot"><img src="images/patio-sevillano.jpg" alt="Comedor de Casa de Porto"><span data-en="Dining room">Comedor</span></div>
       <div class="photo-slot"><img src="images/rooftop-terraza.jpg" alt="Terraza del rooftop de Casa de Porto"><span>Rooftop # 2</span></div>
     </div>
   </div>
@@ -553,25 +587,25 @@
 <section class="gallery light">
   <div class="wrap">
     <div class="amenities-head">
-      <p class="eyebrow">Galería</p>
-      <h2>Un recorrido por dentro</h2>
+      <p class="eyebrow" data-en="Gallery">Galería</p>
+      <h2 data-en="A look inside">Un recorrido por dentro</h2>
     </div>
 
-    <h3 class="gallery-cat">Zaguán y entrada</h3>
+    <h3 class="gallery-cat" data-en="Entrance hall">Zaguán y entrada</h3>
     <div class="gallery-grid">
       <div class="photo-slot"><img src="lobby.jpg" alt="Zaguán y lobby de Casa de Porto"></div>
       <div class="photo-slot"><img src="lobby%202.jpg" alt="Lobby con puerta colonial y vitrales"></div>
       <div class="photo-slot"><img src="escaleras.jpg" alt="Escaleras internas de la casa"></div>
     </div>
 
-    <h3 class="gallery-cat">Salas y estancias</h3>
+    <h3 class="gallery-cat" data-en="Living areas">Salas y estancias</h3>
     <div class="gallery-grid">
       <div class="photo-slot"><img src="sala%20con%20aire.jpg" alt="Sala principal con aire acondicionado"></div>
       <div class="photo-slot"><img src="sala%20con%20aire%202.jpg" alt="Vista de la sala principal"></div>
       <div class="photo-slot"><img src="sala%20de%20espra.jpg" alt="Sala de espera"></div>
     </div>
 
-    <h3 class="gallery-cat">Habitaciones</h3>
+    <h3 class="gallery-cat" data-en="Bedrooms">Habitaciones</h3>
     <div class="gallery-grid gallery-2col">
       <div class="photo-slot"><img src="cuarto%201.jpg" alt="Habitación con cama doble"></div>
       <div class="photo-slot"><img src="cuarto%20dos%20camas.jpg" alt="Habitación con dos camas sencillas"></div>
@@ -580,21 +614,21 @@
       <div class="photo-slot"><img src="habitacion-verde.jpg" alt="Habitación con cama de bronce y cubrecama verde"></div>
     </div>
 
-    <h3 class="gallery-cat">Cocina y comedor</h3>
+    <h3 class="gallery-cat" data-en="Kitchen &amp; dining">Cocina y comedor</h3>
     <div class="gallery-grid">
       <div class="photo-slot"><img src="cocina%20con%20barra.jpg" alt="Cocina equipada con barra"></div>
       <div class="photo-slot"><img src="barra%20cocina.jpg" alt="Barra de la cocina con bancos"></div>
       <div class="photo-slot"><img src="comedor%20.jpg" alt="Comedor junto al patio sevillano"></div>
     </div>
 
-    <h3 class="gallery-cat">Patio sevillano</h3>
+    <h3 class="gallery-cat" data-en="Sevillian courtyard">Patio sevillano</h3>
     <div class="gallery-grid">
       <div class="photo-slot"><img src="patio%20sevillano.jpg" alt="Patio sevillano con fuente de cascada"></div>
       <div class="photo-slot"><img src="patio%20interno%20.jpg" alt="Vista interior del patio"></div>
       <div class="photo-slot"><img src="vista%20interna.jpg" alt="Vista interior de la casa y balcones"></div>
     </div>
 
-    <h3 class="gallery-cat">Rooftop y Piscina - Jacuzzi</h3>
+    <h3 class="gallery-cat" data-en="Rooftop &amp; Pool - Jacuzzi">Rooftop y Piscina - Jacuzzi</h3>
     <div class="gallery-grid">
       <div class="photo-slot"><img src="piscina%20.jpg" alt="Piscina del rooftop con vista a Cartagena"></div>
       <div class="photo-slot"><img src="piscina%202.jpg" alt="Piscina del rooftop"></div>
@@ -608,12 +642,12 @@
 
 <section class="avail cream" id="disponibilidad">
   <div class="wrap">
-    <p class="eyebrow">Disponibilidad y tarifa</p>
-    <h2 style="margin-top:0.5rem;">Reserva directa</h2>
+    <p class="eyebrow" data-en="Availability &amp; rates">Disponibilidad y tarifa</p>
+    <h2 style="margin-top:0.5rem;" data-en="Direct booking">Reserva directa</h2>
 
     <div class="price-banner">
-      <span class="amount">$1.700.000 <span>COP / noche · este mes</span></span>
-      <span class="note">Estancia mínima: 2 noches</span>
+      <span class="amount">$1.700.000 <span data-en="COP / night · this month">COP / noche · este mes</span></span>
+      <span class="note" data-en="Minimum stay: 2 nights">Estancia mínima: 2 noches</span>
     </div>
 
     <div class="cal-wrap">
@@ -624,8 +658,8 @@
       </div>
       <div class="cal-grid" id="calGrid"></div>
       <div class="cal-legend">
-        <span><i class="dot"></i> Disponible</span>
-        <span style="color:#b9b2a2;text-decoration:line-through;">Ocupado</span>
+        <span><i class="dot"></i> <span data-en="Available">Disponible</span></span>
+        <span style="color:#b9b2a2;text-decoration:line-through;" data-en="Booked">Ocupado</span>
       </div>
     </div>
 
@@ -636,67 +670,67 @@
 <section class="reserve light" id="reservar">
   <div class="wrap">
     <div class="reserve-head">
-      <p class="eyebrow">Solicitar reserva</p>
-      <h2 style="margin-top:0.5rem;">Cuéntanos tu estadía</h2>
+      <p class="eyebrow" data-en="Request a booking">Solicitar reserva</p>
+      <h2 style="margin-top:0.5rem;" data-en="Tell us about your stay">Cuéntanos tu estadía</h2>
     </div>
 
     <form id="reserveForm">
       <div>
-        <label for="nombre">Nombre completo</label>
+        <label for="nombre" data-en="Full name">Nombre completo</label>
         <input type="text" id="nombre" required>
       </div>
       <div class="row2">
         <div>
-          <label for="llegada">Fecha de llegada</label>
+          <label for="llegada" data-en="Check-in date">Fecha de llegada</label>
           <input type="date" id="llegada" required>
         </div>
         <div>
-          <label for="salida">Fecha de salida</label>
+          <label for="salida" data-en="Check-out date">Fecha de salida</label>
           <input type="date" id="salida" required>
         </div>
       </div>
       <div class="row2">
         <div>
-          <label for="huespedes">Número de huéspedes</label>
+          <label for="huespedes" data-en="Number of guests">Número de huéspedes</label>
           <input type="number" id="huespedes" min="1" required>
         </div>
         <div>
-          <label for="contacto">WhatsApp o correo</label>
+          <label for="contacto" data-en="WhatsApp or email">WhatsApp o correo</label>
           <input type="text" id="contacto" required>
         </div>
       </div>
       <div>
-        <label for="mensaje">Mensaje (opcional)</label>
-        <textarea id="mensaje" placeholder="Motivo del viaje, grupo, alguna solicitud especial..."></textarea>
+        <label for="mensaje" data-en="Message (optional)">Mensaje (opcional)</label>
+        <textarea id="mensaje" placeholder="Motivo del viaje, grupo, alguna solicitud especial..." data-en-ph="Reason for your trip, your group, any special request..."></textarea>
       </div>
-      <button type="submit" class="btn" style="width:100%;text-align:center;border:none;cursor:pointer;">Enviar solicitud por WhatsApp</button>
-      <p class="form-note">Al enviar, se abrirá WhatsApp con tu solicitud lista para enviar. Te confirmamos disponibilidad y compartimos los datos de la cuenta para transferencia.</p>
+      <button type="submit" class="btn" style="width:100%;text-align:center;border:none;cursor:pointer;" data-en="Send request via WhatsApp">Enviar solicitud por WhatsApp</button>
+      <p class="form-note" data-en="When you send it, WhatsApp will open with your request ready to go. We&#39;ll confirm availability and share our account details for the transfer.">Al enviar, se abrirá WhatsApp con tu solicitud lista para enviar. Te confirmamos disponibilidad y compartimos los datos de la cuenta para transferencia.</p>
     </form>
 
     <div class="alt-booking">
-      <span class="alt-booking-sep">o si lo prefieres</span>
+      <span class="alt-booking-sep" data-en="or if you prefer">o si lo prefieres</span>
       <a href="https://www.airbnb.com.co/rooms/1674010379860914177" target="_blank" rel="noopener" class="btn-airbnb">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-1.3 0-2.3.7-3 2.1-.6 1.2-4.6 9.7-5.4 11.6-.3.7-.4 1.3-.4 1.9 0 2.5 1.9 4.4 4.4 4.4 1.7 0 3.3-.8 4.4-2.2 1.1 1.4 2.7 2.2 4.4 2.2 2.5 0 4.4-1.9 4.4-4.4 0-.6-.1-1.2-.4-1.9-.8-1.9-4.8-10.4-5.4-11.6C14.3 2.7 13.3 2 12 2zm0 1.8c.6 0 1 .3 1.4 1.1.6 1.2 4.5 9.6 5.3 11.4.2.5.3.9.3 1.3 0 1.5-1.1 2.6-2.6 2.6-1.3 0-2.5-.7-3.3-2 .9-1.3 1.5-2.5 1.7-3.3.2-.7.2-1.3.1-1.9-.3-1.4-1.5-2.3-2.9-2.3s-2.6.9-2.9 2.3c-.1.6-.1 1.2.1 1.9.2.8.8 2 1.7 3.3-.8 1.3-2 2-3.3 2-1.5 0-2.6-1.1-2.6-2.6 0-.4.1-.8.3-1.3.8-1.8 4.7-10.2 5.3-11.4.4-.8.8-1.1 1.4-1.1zm0 8.7c.7 0 1.2.4 1.3 1 .1.3.1.7-.1 1.2-.2.6-.6 1.5-1.2 2.4-.6-.9-1-1.8-1.2-2.4-.2-.5-.2-.9-.1-1.2.1-.6.6-1 1.3-1z"/></svg>
-        Reservar por Airbnb
+        <span data-en="Book on Airbnb">Reservar por Airbnb</span>
       </a>
-      <p class="form-note" style="text-align:center;">Nuestro calendario está sincronizado con Airbnb, así que la disponibilidad es la misma en ambos canales.</p>
+      <p class="form-note" style="text-align:center;" data-en="Our calendar is synced with Airbnb, so availability is the same on both channels.">Nuestro calendario está sincronizado con Airbnb, así que la disponibilidad es la misma en ambos canales.</p>
     </div>
 
     <div class="steps">
       <div class="step">
         <span class="num">01</span>
-        <h3>Envías tu solicitud</h3>
-        <p>Con tus fechas y número de huéspedes, por WhatsApp o correo.</p>
+        <h3 data-en="You send your request">Envías tu solicitud</h3>
+        <p data-en="With your dates and number of guests, by WhatsApp or email.">Con tus fechas y número de huéspedes, por WhatsApp o correo.</p>
       </div>
       <div class="step">
         <span class="num">02</span>
-        <h3>Confirmamos y compartimos cuenta</h3>
-        <p>Verificamos disponibilidad y te enviamos los datos para la transferencia.</p>
+        <h3 data-en="We confirm and share our account">Confirmamos y compartimos cuenta</h3>
+        <p data-en="We check availability and send you the details for the transfer.">Verificamos disponibilidad y te enviamos los datos para la transferencia.</p>
       </div>
       <div class="step">
         <span class="num">03</span>
-        <h3>Envías el comprobante</h3>
-        <p>Tu reserva queda confirmada y bloqueada en el calendario.</p>
+        <h3 data-en="You send the receipt">Envías el comprobante</h3>
+        <p data-en="Your booking is confirmed and blocked on the calendar.">Tu reserva queda confirmada y bloqueada en el calendario.</p>
       </div>
     </div>
   </div>
@@ -704,11 +738,11 @@
 
 <div class="preview-overlay" id="previewOverlay">
   <div class="preview-card">
-    <h3>Vista previa de la solicitud</h3>
-    <p style="font-size:0.9rem;color:var(--ink-dim);">Así llegaría este mensaje por WhatsApp una vez esté configurado el número de contacto:</p>
+    <h3 data-en="Request preview">Vista previa de la solicitud</h3>
+    <p style="font-size:0.9rem;color:var(--ink-dim);" data-en="This is how the message would arrive on WhatsApp once the contact number is set up:">Así llegaría este mensaje por WhatsApp una vez esté configurado el número de contacto:</p>
     <dl id="previewData"></dl>
-    <p class="note">Este es un piloto — la solicitud aún no se envió a ningún lado.</p>
-    <button class="btn" style="border:none;cursor:pointer;" onclick="document.getElementById('previewOverlay').classList.remove('open')">Cerrar</button>
+    <p class="note" data-en="This is a preview — the request has not been sent anywhere yet.">Este es un piloto — la solicitud aún no se envió a ningún lado.</p>
+    <button class="btn" style="border:none;cursor:pointer;" onclick="document.getElementById('previewOverlay').classList.remove('open')" data-en="Close">Cerrar</button>
   </div>
 </div>
 
@@ -717,20 +751,20 @@
     <div class="foot-brand">
       <img src="images/logo-mark.png" alt="Casa de Porto" class="foot-logo">
       <img src="images/wordmark-dark.png" alt="Casa de Porto" class="foot-wordmark">
-      <p>Una casa colonial privada en el centro histórico amurallado de Cartagena de Indias.</p>
+      <p data-en="A private colonial house in the walled old town of Cartagena de Indias.">Una casa colonial privada en el centro histórico amurallado de Cartagena de Indias.</p>
     </div>
     <div>
-      <h4>Navegación</h4>
+      <h4 data-en="Navigation">Navegación</h4>
       <ul class="foot-links">
-        <li><a href="#casa">La casa</a></li>
-        <li><a href="#disponibilidad">Disponibilidad</a></li>
-        <li><a href="#reservar">Reservar</a></li>
+        <li><a href="#casa" data-en="The house">La casa</a></li>
+        <li><a href="#disponibilidad" data-en="Availability">Disponibilidad</a></li>
+        <li><a href="#reservar" data-en="Book">Reservar</a></li>
       </ul>
     </div>
     <div>
-      <h4>Contacto</h4>
+      <h4 data-en="Contact">Contacto</h4>
       <ul class="foot-links">
-        <li>Calle Tumbamuertos, Centro Histórico</li>
+        <li data-en="Calle Tumbamuertos, Old Town">Calle Tumbamuertos, Centro Histórico</li>
         <li>Cartagena de Indias, Colombia</li>
       </ul>
       <div class="foot-social">
@@ -753,7 +787,7 @@
       </div>
     </div>
   </div>
-  <div class="foot-bottom">© Casa de Porto · Centro Histórico de Cartagena de Indias</div>
+  <div class="foot-bottom" data-en="© Casa de Porto · Old Town of Cartagena de Indias">© Casa de Porto · Centro Histórico de Cartagena de Indias</div>
 </footer>
 
 <a href="https://wa.me/573214638874?text=Hola,%20me%20interesa%20reservar%20en%20Casa%20de%20Porto." target="_blank" rel="noopener" class="wa-float" aria-label="Escríbenos por WhatsApp">
@@ -769,8 +803,37 @@
   // (Archivo > Compartir > Publicar en la web > formato CSV).
   const AIRBNB_SHEET_CSV_URL = "PEGA_AQUI_TU_URL_CSV_PUBLICADA";
 
-  const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-  const dowNames = ["Do","Lu","Ma","Mi","Ju","Vi","Sa"];
+  // ----- Textos de los dos idiomas -----
+  const I18N = {
+    es: {
+      title: "Casa de Porto · Centro Histórico, Cartagena",
+      months: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+      dows: ["Do","Lu","Ma","Mi","Ju","Vi","Sa"],
+      noteLoading: "Cargando disponibilidad desde el calendario de Airbnb…",
+      notePending: "Calendario en configuración: aún falta conectar la hoja con las fechas de Airbnb.",
+      noteOk: "Disponibilidad sincronizada automáticamente con el calendario de Airbnb de Casa de Porto.",
+      noteFail: "No se pudo cargar la disponibilidad en este momento. Escríbenos para confirmar fechas.",
+      waIntro: "Hola, quiero solicitar disponibilidad en Casa de Porto.",
+      fName: "Nombre", fIn: "Llegada", fOut: "Salida", fGuests: "Huéspedes",
+      fContact: "Contacto", fMsg: "Mensaje"
+    },
+    en: {
+      title: "Casa de Porto · Old Town, Cartagena",
+      months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
+      dows: ["Su","Mo","Tu","We","Th","Fr","Sa"],
+      noteLoading: "Loading availability from the Airbnb calendar…",
+      notePending: "Calendar setup in progress: the sheet with the Airbnb dates is not connected yet.",
+      noteOk: "Availability synced automatically with Casa de Porto's Airbnb calendar.",
+      noteFail: "Availability could not be loaded right now. Message us to confirm your dates.",
+      waIntro: "Hello, I would like to check availability at Casa de Porto.",
+      fName: "Name", fIn: "Check-in", fOut: "Check-out", fGuests: "Guests",
+      fContact: "Contact", fMsg: "Message"
+    }
+  };
+
+  let LANG = "es";
+  let noteKey = "noteLoading";
+  const T = () => I18N[LANG];
   let viewDate = new Date(2026, 7, 1); // Agosto 2026
   let blockedRanges = [];
 
@@ -783,7 +846,8 @@
   async function loadBlockedDates(){
     const note = document.getElementById('syncNote');
     if (AIRBNB_SHEET_CSV_URL.startsWith("PEGA_AQUI")) {
-      note.textContent = "Calendario en configuración: aún falta conectar la hoja con las fechas de Airbnb.";
+      noteKey = "notePending";
+      note.textContent = T().notePending;
       renderCalendar();
       return;
     }
@@ -797,9 +861,11 @@
           const [inicio, fin] = r.split(",");
           return { inicio: parseCsvDate(inicio), fin: parseCsvDate(fin) };
         });
-      note.textContent = "Disponibilidad sincronizada automáticamente con el calendario de Airbnb de Casa de Porto.";
+      noteKey = "noteOk";
+      note.textContent = T().noteOk;
     } catch (e) {
-      note.textContent = "No se pudo cargar la disponibilidad en este momento. Escríbenos para confirmar fechas.";
+      noteKey = "noteFail";
+      note.textContent = T().noteFail;
     }
     renderCalendar();
   }
@@ -811,11 +877,11 @@
   function renderCalendar(){
     const year = viewDate.getFullYear();
     const month = viewDate.getMonth();
-    document.getElementById('calLabel').textContent = `${monthNames[month]} ${year}`;
+    document.getElementById('calLabel').textContent = `${T().months[month]} ${year}`;
 
     const grid = document.getElementById('calGrid');
     grid.innerHTML = '';
-    dowNames.forEach(d => {
+    T().dows.forEach(d => {
       const el = document.createElement('div');
       el.className = 'dow';
       el.textContent = d;
@@ -871,20 +937,66 @@
 
     if (OWNER_WHATSAPP.startsWith("PEGA_AQUI")) {
       document.getElementById('previewData').innerHTML = `
-        <dt>Nombre</dt><dd>${nombre}</dd>
-        <dt>Llegada</dt><dd>${llegada}</dd>
-        <dt>Salida</dt><dd>${salida}</dd>
-        <dt>Huéspedes</dt><dd>${huespedes}</dd>
-        <dt>Contacto</dt><dd>${contacto}</dd>
-        <dt>Mensaje</dt><dd>${mensaje || '-'}</dd>
+        <dt>${T().fName}</dt><dd>${nombre}</dd>
+        <dt>${T().fIn}</dt><dd>${llegada}</dd>
+        <dt>${T().fOut}</dt><dd>${salida}</dd>
+        <dt>${T().fGuests}</dt><dd>${huespedes}</dd>
+        <dt>${T().fContact}</dt><dd>${contacto}</dd>
+        <dt>${T().fMsg}</dt><dd>${mensaje || '-'}</dd>
       `;
       document.getElementById('previewOverlay').classList.add('open');
       return;
     }
 
-    const texto = `Hola, quiero solicitar disponibilidad en Casa de Porto.%0A%0ANombre: ${nombre}%0ALlegada: ${llegada}%0ASalida: ${salida}%0AHuéspedes: ${huespedes}%0AContacto: ${contacto}%0AMensaje: ${mensaje || '-'}`;
+    const t = T();
+    const texto = `${t.waIntro}%0A%0A${t.fName}: ${nombre}%0A${t.fIn}: ${llegada}%0A${t.fOut}: ${salida}%0A${t.fGuests}: ${huespedes}%0A${t.fContact}: ${contacto}%0A${t.fMsg}: ${mensaje || '-'}`;
     window.open(`https://wa.me/${OWNER_WHATSAPP}?text=${texto}`, '_blank');
   });
+
+  // ----- Cambio de idioma -----
+  function applyLang(lang){
+    LANG = (lang === "en") ? "en" : "es";
+    document.documentElement.lang = LANG;
+    const en = (LANG === "en");
+
+    document.querySelectorAll("[data-en]").forEach(el => {
+      if (el.dataset.es === undefined) el.dataset.es = el.textContent;
+      el.textContent = en ? el.dataset.en : el.dataset.es;
+    });
+    document.querySelectorAll("[data-en-html]").forEach(el => {
+      if (el.dataset.esHtml === undefined) el.dataset.esHtml = el.innerHTML;
+      el.innerHTML = en ? el.dataset.enHtml : el.dataset.esHtml;
+    });
+    document.querySelectorAll("[data-en-ph]").forEach(el => {
+      if (el.dataset.esPh === undefined) el.dataset.esPh = el.placeholder;
+      el.placeholder = en ? el.dataset.enPh : el.dataset.esPh;
+    });
+
+    document.title = T().title;
+    const note = document.getElementById("syncNote");
+    if (note) note.textContent = T()[noteKey];
+    renderCalendar();
+
+    document.querySelectorAll("#langSwitch button").forEach(b => {
+      b.classList.toggle("active", b.dataset.lang === LANG);
+    });
+    try { localStorage.setItem("cdp-lang", LANG); } catch (e) {}
+  }
+
+  document.querySelectorAll("#langSwitch button").forEach(b => {
+    b.addEventListener("click", () => applyLang(b.dataset.lang));
+  });
+
+  // Idioma inicial: el que el visitante eligio antes; si no, el de su navegador
+  (function(){
+    let inicial = null;
+    try { inicial = localStorage.getItem("cdp-lang"); } catch (e) {}
+    if (!inicial) {
+      const nav = (navigator.language || "es").toLowerCase();
+      inicial = nav.startsWith("es") ? "es" : "en";
+    }
+    applyLang(inicial);
+  })();
 </script>
 
 </body>
